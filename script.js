@@ -18,7 +18,7 @@ const getElement = (id) => {
 
 const randomAnswer = (index) => {
     let newAnsIndex = Math.floor(Math.random() * (ANSWERS.length - 1));
-    return ANSWERS.push(ANSWERS.splice(newAnsIndex, 1)[0]);
+    return ANSWERS[ANSWERS.push(ANSWERS.splice(newAnsIndex, 1)[0]) - 1];
 };
 
 const newAnswer = () => {
