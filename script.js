@@ -43,14 +43,17 @@ document.body.onmousemove = e => {
     if (cooldown) return;
     cooldown = true;
 
-    let shadowX = Math.floor((center.x - e.clientX) / 33);
-    let shadowY = Math.floor((center.y - e.clientY) / 33);
-    let shadowBlur = Math.sqrt((shadowX - shadowY) ** 2) / 2 + 25;
+    let root = document.documentElement.style;
 
-    console.log("Shadow X offset: ", shadowX, "Shadow Y offset: ", shadowY, "Shadow blur radius: ", shadowBlur);
+    let shadowX     = (center.x - e.clientX) / 15;
+    let shadowY     = (center.y - e.clientY) / 15;
+    let shadowBlur  = Math.sqrt((shadowX - shadowY) ** 2) / 3 + 25;
 
-    document.documentElement.style.setProperty("--shadow-x", `${shadowX}px`);
-    document.documentElement.style.setProperty("--shadow-y", `${shadowY}px`);
-    document.documentElement.style.setProperty("--shadow-blur", `${shadowBlur}px`);
-    setTimeout(() => cooldown = false, 33);
+    console.log("Shadow X offset:", shadowX.toFixed(2), "Shadow Y offset:", shadowY.toFixed(2), "Shadow blur radius:", shadowBlur.toFixed(2));
+
+    root.setProperty("--shadow-x", `${shadowX}px`);
+    root.setProperty("--shadow-y", `${shadowY}px`);
+    root.setProperty("--shadow-blur", `${shadowBlur}px`);
+    
+    setTimeout(() => cooldown = false, 16);
 }

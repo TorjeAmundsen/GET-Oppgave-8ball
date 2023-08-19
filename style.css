@@ -2,18 +2,22 @@
     --shadow-x: 0px;
     --shadow-y: 0px;
     --shadow-blur: 25px;
+    --inner-x: 0px;
+    --inner-y: 0px;
+    --inner-blur: 25px;
 }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    background-color: #151515;
+    background-color: #7e7e7e;
     height: 98.2vh;
     width: 100vw;
     margin: 0;
 }
 
 .outer-ball {
+    outline: 4px solid black;
     border-radius: 18rem;
     width: 25rem;
     height: 25rem;
@@ -23,18 +27,18 @@ body {
     transform: translate(-50%, -50%);
     background-color: #321646;
     cursor: pointer;
-    box-shadow: var(--shadow-x) var(--shadow-y) var(--shadow-blur) #000, inset 3px 3px 12px rgba(179, 36, 214, 0.2);
+    box-shadow: var(--shadow-x) var(--shadow-y) var(--shadow-blur) #000, inset var(--inner-x) var(--inner-y) var(--inner-blur) rgba(179, 36, 214, 0.2);
 }
 
-.outer-ball:hover {
+/* .outer-ball:hover {
     transition: 200ms;
     background-color: #391a4e;
 }
 
 .outer-ball:active {
     transition: 200ms;
-    box-shadow: 3px 3px 25px #000, inset 3px 3px 25px rgba(72, 14, 87, 0.35);
-}
+    box-shadow: var(--shadow-x) var(--shadow-y) var(--shadow-blur) #000, inset 3px 3px 25px rgba(72, 14, 87, 0.35);
+} */
 
 .inner-ball {
     border-radius: 10rem;
